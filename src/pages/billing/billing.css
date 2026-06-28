@@ -1,0 +1,257 @@
+.billing-page{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:20px;
+
+    padding:30px;
+
+}
+
+.product-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+
+    gap:20px;
+
+}
+
+.product-card{
+
+    background:#fff;
+
+    border-radius:10px;
+
+    padding:20px;
+
+    cursor:pointer;
+
+    text-align:center;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+    transition:.2s;
+
+}
+
+.product-card{
+
+    background:#FFFFFF;
+
+    color:#111827;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:10px;
+
+    padding:20px;
+
+    cursor:pointer;
+
+    text-align:center;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+    transition:.2s;
+
+}
+
+.product-card h3{
+
+    color:#111827;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+.product-card p{
+
+    color:#16A34A;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin:0;
+
+}
+
+.billing-cart{
+
+    background:#fff;
+
+    border-radius:10px;
+
+    padding:20px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+}
+
+.billing-total{
+
+    margin-top:20px;
+
+    padding-top:15px;
+
+    border-top:2px solid #E5E7EB;
+
+    color:#111827;
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.checkout-btn{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:15px;
+
+    background:#16A34A;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+.cart-item{
+
+    padding:12px 0;
+
+    border-bottom:1px solid #E5E7EB;
+
+}
+
+.plus,
+.minus{
+
+    margin:10px 5px 0;
+
+    width:30px;
+
+    height:30px;
+
+    border:none;
+
+    border-radius:6px;
+
+    background:#2563EB;
+
+    color:#fff;
+
+    cursor:pointer;
+
+}
+.cart-item{
+
+    background:#FFFFFF;
+
+    color:#111827;
+
+    padding:12px;
+
+    margin-bottom:12px;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:8px;
+
+}
+
+.cart-item strong{
+
+    color:#111827;
+
+    font-size:16px;
+
+    font-weight:700;
+
+}
+
+.cart-item span{
+
+    color:#111827;
+
+}
+
+.cart-item button{
+
+    color:#FFFFFF;
+
+}
+.billing-cart h2{
+
+    color:#111827;
+
+    font-size:26px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+.product-icon{
+
+    font-size:42px;
+
+    margin-bottom:12px;
+
+}
+
+.product-card:active{
+
+    transform:scale(.96);
+
+}
+
+.product-card{
+
+    user-select:none;
+
+}
+
+.billing-cart{
+
+    position:sticky;
+
+    top:20px;
+
+    align-self:start;
+
+}
+
+.checkout-btn:hover{
+
+    background:#15803D;
+
+}
+
+.checkout-btn:active{
+
+    transform:scale(.98);
+
+}
+
+.plus:hover,
+.minus:hover{
+
+    background:#1D4ED8;
+
+}

@@ -11,6 +11,7 @@ import { StatCard } from "../../components/statcard/index.js";
 import { logout } from "../../services/authService.js";
 import { renderLogin } from "../Login/index.js";
 import { renderProducts } from "../products/index.js";
+import { renderBilling } from "../billing/index.js";
 
 export function renderDashboard() {
 
@@ -73,4 +74,8 @@ export function renderDashboard() {
     document
         .getElementById("addProductBtn")
         .addEventListener("click", renderProducts);
+
+    document
+        .getElementById("navBilling")
+        .addEventListener("click", renderBilling);
 }

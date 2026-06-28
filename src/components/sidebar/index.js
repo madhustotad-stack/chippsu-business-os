@@ -16,6 +16,10 @@ export function Sidebar() {
                     Products
                 </button>
 
+                <button class="nav-item" id="navBilling">
+                    Billing
+                </button>
+
                 <button class="nav-item">
                     Inventory
                 </button>
