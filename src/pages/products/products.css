@@ -1,0 +1,73 @@
+.products-page{
+
+    padding:30px;
+
+}
+
+.products-page h1{
+
+    margin-bottom:25px;
+
+}
+
+.category-toolbar{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+.category-toolbar input{
+
+    flex:1;
+
+    padding:12px;
+
+    border:1px solid #D1D5DB;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+}
+
+.category-toolbar button{
+
+    padding:12px 24px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#2563EB;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+#categoryList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.category-card{
+
+    background:white;
+
+    padding:18px;
+
+    border-radius:10px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+}
