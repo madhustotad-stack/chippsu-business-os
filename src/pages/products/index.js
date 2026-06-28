@@ -1,35 +1,43 @@
 import "./products.css";
-import db from "../../database/db.js";
+
+import { addCategory, getCategories } from "./categoryService.js";
+import { addProduct, getProducts } from "./productService.js";
+import { productForm } from "./productUI.js";
 
 export async function renderProducts() {
 
-    const container = document.querySelector(".dashboard-body");
+    const body = document.querySelector(".dashboard-body");
 
-if (!container) {
-    console.error("dashboard-body not found");
-    return;
-}
+    const categories = await getCategories();
 
-container.innerHTML = `
+    body.innerHTML = `
 
         <div class="products-page">
 
-            <h1>Category Management</h1>
+            <h1>Products</h1>
 
             <div class="category-toolbar">
 
                 <input
                     id="categoryName"
                     type="text"
-                    placeholder="Enter Category Name">
+                    placeholder="Category Name">
 
                 <button id="addCategoryBtn">
+
                     Add Category
+
                 </button>
 
             </div>
 
             <div id="categoryList"></div>
+
+            <hr>
+
+            ${productForm(categories)}
+
+            <div id="productList"></div>
 
         </div>
 
@@ -37,13 +45,19 @@ container.innerHTML = `
 
     document
         .getElementById("addCategoryBtn")
-        .addEventListener("click", addCategory);
+        .addEventListener("click", saveCategory);
 
-    loadCategories();
+    document
+        .getElementById("saveProductBtn")
+        .addEventListener("click", saveProduct);
+
+    await loadCategories();
+
+    await loadProducts();
 
 }
 
-async function addCategory() {
+async function saveCategory() {
 
     const input = document.getElementById("categoryName");
 
@@ -51,19 +65,25 @@ async function addCategory() {
 
     if (!name) return;
 
-    await db.categories.add({
-        name
-    });
+    try {
 
-    input.value = "";
+        await addCategory(name);
 
-    loadCategories();
+        input.value = "";
+
+        renderProducts();
+
+    } catch (error) {
+
+        alert(error.message);
+
+    }
 
 }
 
 async function loadCategories() {
 
-    const categories = await db.categories.toArray();
+    const categories = await getCategories();
 
     const list = document.getElementById("categoryList");
 
@@ -76,6 +96,64 @@ async function loadCategories() {
             <div class="category-card">
 
                 ${category.name}
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+async function saveProduct() {
+
+    const name = document.getElementById("productName").value.trim();
+
+    const categoryId = Number(document.getElementById("productCategory").value);
+
+    const price = Number(document.getElementById("productPrice").value);
+
+    if (!name) {
+
+        alert("Enter Product Name");
+
+        return;
+
+    }
+
+    await addProduct({
+
+        name,
+
+        categoryId,
+
+        price,
+
+        isActive: true
+
+    });
+
+    await loadProducts();
+
+}
+
+async function loadProducts() {
+
+    const products = await getProducts();
+
+    const list = document.getElementById("productList");
+
+    list.innerHTML = "<h2>Products</h2>";
+
+    products.forEach(product => {
+
+        list.innerHTML += `
+
+            <div class="category-card">
+
+                <strong>${product.name}</strong><br>
+
+                ₹ ${product.price}
 
             </div>
 
