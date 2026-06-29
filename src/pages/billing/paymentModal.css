@@ -1,0 +1,113 @@
+.payment-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.payment-modal{
+
+    width:340px;
+
+    background:#FFFFFF;
+
+    border-radius:16px;
+
+    padding:24px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+}
+
+.payment-modal h2{
+
+    margin:0;
+
+    margin-bottom:20px;
+
+    color:#111827;
+
+    text-align:center;
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.payment-total{
+
+    text-align:center;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#16A34A;
+
+    margin-bottom:24px;
+
+}
+
+.payment-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.2s;
+
+}
+
+.payment-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.cash{
+
+    background:#16A34A;
+
+    color:#FFFFFF;
+
+}
+
+.upi{
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+}
+
+.cancel{
+
+    background:#EF4444;
+
+    color:#FFFFFF;
+
+}

@@ -1,0 +1,83 @@
+.receipt-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.receipt-modal{
+
+    width:360px;
+
+    background:#FFFFFF;
+
+    border-radius:14px;
+
+    padding:24px;
+
+}
+
+.receipt-modal h2{
+
+    text-align:center;
+
+    color:#111827;
+
+    margin-bottom:20px;
+
+}
+
+.receipt-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin:8px 0;
+
+    color:#111827;
+
+}
+
+.receipt-total{
+
+    text-align:right;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#16A34A;
+
+    margin:20px 0;
+
+}
+
+#closeReceipt{
+
+    width:100%;
+
+    padding:14px;
+
+    background:#2563EB;
+
+    color:#FFFFFF;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}

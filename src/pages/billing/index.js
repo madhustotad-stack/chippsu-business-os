@@ -1,4 +1,5 @@
 import "./billing.css";
+import "./paymentModal.css";
 
 import { getProducts } from "../products/productService.js";
 
@@ -13,11 +14,17 @@ import {
 
 import { saveSale } from "./billingService.js";
 
+import { openPaymentModal } from "./paymentModal.js";
+
+import { generateReceipt } from "./receiptService.js";
+import { showReceipt } from "./receiptModal.js";
+
 export async function renderBilling() {
 
     const body = document.querySelector(".dashboard-body");
 
     const products = await getProducts();
+    window.products = products;
 
     body.innerHTML = `
         <div class="billing-page">
@@ -55,7 +62,7 @@ export async function renderBilling() {
 
     renderProductGrid(products);
 
-    renderCart(products);
+    renderCart(window.products);
     document
     .getElementById("checkoutBtn")
     .addEventListener("click", checkout);
@@ -96,7 +103,7 @@ function renderProductGrid(products) {
 
             addToCart(product);
 
-            renderCart(products);
+            renderCart(window.products);
 
         });
 
@@ -167,7 +174,7 @@ function attachCartEvents(products) {
 
             increaseQuantity(Number(button.dataset.id));
 
-            renderCart(products);
+            renderCart(window.products);
 
         };
 
@@ -179,7 +186,7 @@ function attachCartEvents(products) {
 
             decreaseQuantity(Number(button.dataset.id));
 
-            renderCart(products);
+            renderCart(window.products);
 
         };
 
@@ -198,18 +205,30 @@ async function checkout() {
 
     }
 
-    const paymentMode = prompt(
-        "Payment Mode (Cash / UPI)"
-    );
+    openPaymentModal(getTotal(), async (paymentMode) => {
 
-    if (!paymentMode) return;
+        try {
 
-    await saveSale(cart, paymentMode);
+            const saleId = await saveSale(cart, paymentMode);
 
-    clearCart();
+const receipt = generateReceipt(
+    saleId,
+    cart,
+    paymentMode
+);
 
-    renderCart([]);
+clearCart();
 
-    alert("Sale Saved Successfully.");
+renderCart(window.products);
+
+showReceipt(receipt);
+
+        } catch (error) {
+
+            alert(error.message);
+
+        }
+
+    });
 
 }
