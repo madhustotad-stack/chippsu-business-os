@@ -1,51 +1,61 @@
 export function Sidebar() {
+
     return `
+
         <aside class="sidebar">
 
             <div class="logo">
+
                 CHIPPSU
+
             </div>
 
-            <nav>
+            <nav class="nav">
 
-                <button class="nav-item active" id="navDashboard">
+                <button
+                    id="navDashboard"
+                    class="nav-item">
+
                     Dashboard
+
                 </button>
 
-                <button class="nav-item" id="navProducts">
+                <button
+                    id="navProducts"
+                    class="nav-item">
+
                     Products
+
                 </button>
 
-                <button class="nav-item" id="navBilling">
+                <button
+                    id="navBilling"
+                    class="nav-item">
+
                     Billing
+
                 </button>
 
-                <button class="nav-item">
-                    Inventory
+                <button
+                    id="navSales"
+                    class="nav-item">
+
+                    Sales History
+
                 </button>
 
-                <button class="nav-item">
-                    Sales
-                </button>
+                <button
+                    id="logoutBtn"
+                    class="nav-item logout">
 
-                <button class="nav-item">
-                    Expenses
-                </button>
+                    Logout
 
-                <button class="nav-item">
-                    Reports
-                </button>
-
-                <button class="nav-item">
-                    Settings
                 </button>
 
             </nav>
 
-            <button id="logoutBtn" class="logout">
-                Logout
-            </button>
-
         </aside>
+
     `;
+
 }

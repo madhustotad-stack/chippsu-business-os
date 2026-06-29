@@ -1,0 +1,107 @@
+.sales-page{
+
+    padding:30px;
+
+}
+
+.sales-page h1{
+
+    color:#111827;
+
+    margin-bottom:25px;
+
+}
+
+#salesList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.sale-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#FFFFFF;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+}
+
+.sale-left h3{
+
+    color:#111827;
+
+    margin:0 0 8px;
+
+}
+
+.sale-left p{
+
+    margin:4px 0;
+
+    color:#6B7280;
+
+}
+
+.sale-right{
+
+    text-align:right;
+
+}
+
+.sale-right h2{
+
+    margin:0;
+
+    color:#16A34A;
+
+}
+
+.sale-right span{
+
+    display:inline-block;
+
+    margin-top:8px;
+
+    padding:4px 10px;
+
+    background:#EFF6FF;
+
+    color:#2563EB;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.empty-sales{
+
+    padding:40px;
+
+    text-align:center;
+
+    background:#FFFFFF;
+
+    border-radius:12px;
+
+    color:#6B7280;
+
+}

@@ -9,11 +9,16 @@ import { Header } from "../../components/header/index.js";
 import { StatCard } from "../../components/statcard/index.js";
 
 import { logout } from "../../services/authService.js";
+import { getDashboardStats } from "../../services/dashboardService.js";
+
 import { renderLogin } from "../Login/index.js";
 import { renderProducts } from "../products/index.js";
 import { renderBilling } from "../billing/index.js";
+import { renderSales } from "../sales/index.js";
 
-export function renderDashboard() {
+export async function renderDashboard() {
+
+    const stats = await getDashboardStats();
 
     document.querySelector("#app").innerHTML = `
 
@@ -27,29 +32,32 @@ export function renderDashboard() {
 
                 <div class="cards">
 
-                    ${StatCard("Today's Sales","₹0","green")}
-                    ${StatCard("Today's Orders","0","blue")}
-                    ${StatCard("Today's Revenue","₹0","orange")}
-                    ${StatCard("Active Shift","OPEN","green")}
+                    ${StatCard("Today's Sales", `₹${stats.sales}`, "green")}
+
+                    ${StatCard("Today's Orders", stats.orders, "blue")}
+
+                    ${StatCard("Today's Revenue", `₹${stats.revenue}`, "orange")}
+
+                    ${StatCard("Active Shift", stats.shift, "green")}
 
                 </div>
 
                 <div class="quick-actions">
 
-                    <button class="action-btn">
-                        + New Sale
+                    <button
+                        class="action-btn"
+                        id="billingBtn">
+
+                        New Sale
+
                     </button>
 
-                    <button class="action-btn" id="addProductBtn">
-                        + Products
-                    </button>
+                    <button
+                        class="action-btn"
+                        id="productsBtn">
 
-                    <button class="action-btn">
-                        + Stock In
-                    </button>
+                        Products
 
-                    <button class="action-btn">
-                        + Expense
                     </button>
 
                 </div>
@@ -63,8 +71,11 @@ export function renderDashboard() {
     document
         .getElementById("logoutBtn")
         .addEventListener("click", () => {
+
             logout();
+
             renderLogin();
+
         });
 
     document
@@ -72,10 +83,19 @@ export function renderDashboard() {
         .addEventListener("click", renderProducts);
 
     document
-        .getElementById("addProductBtn")
+        .getElementById("navBilling")
+        .addEventListener("click", renderBilling);
+
+    document
+        .getElementById("productsBtn")
         .addEventListener("click", renderProducts);
 
     document
-        .getElementById("navBilling")
+        .getElementById("billingBtn")
         .addEventListener("click", renderBilling);
+
+    document
+        .getElementById("navSales")
+        .addEventListener("click", renderSales);
+
 }
